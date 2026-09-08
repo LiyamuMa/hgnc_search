@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hgnc-app"
+version = "0.1.0"
+dependencies = [
+    "Django==6.1",
+    "pytest==9.1.1",
+    "pytest-cov==7.1.0",
+]
+
+[tool.setuptools]
+packages = ["webapp", "hgnc_app"]

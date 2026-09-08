@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <h1>HGNC Search Lite</h1>
+
+    <p class="intro">Enter the HGNC ID or symbol below to get some basic information
+        about your gene!</p>
+
+    <form method="GET" action="">
+        <input type="text" name="search">
+        <button type="submit">
+            Search
+        </button>
+    </form>
+
+<section>
+    <table>
+        <tr>
+            <th>Gene Symbol</th>
+            <td>{{ gene.gene_symbol }}</td>
+        </tr>
+
+        <tr>
+            <th>HGNC ID</th>
+            <td>{{ gene.hgnc_id }}</td>
+        </tr>
+
+        <tr>
+            <th>Approved Name</th>
+            <td>{{ gene.gene_name }}</td>
+        </tr>
+
+        <tr>
+            <th>Previous Symbols</th>
+            <td>
+                {% for p_symbol in gene.previous_gene_symbol %}
+                    {{ p_symbol }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Previous Names</th>
+            <td>
+                {% for p_name in gene.previous_gene_name %}
+                    {{ p_name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Alias Symbols</th>
+            <td>
+                {% for a_symbol in gene.alias_symbol %}
+                    {{ a_symbol }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Alias Names</th>
+            <td>
+                {% for a_name in gene.alias_name %}
+                    {{ a_name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+
+        <tr>
+            <th>MANE Select</th>
+            <td>
+                {% for mane_select in gene.mane_select_transcripts %}
+                    {{ mane_select }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+    </table>
+</section>
+
+</body>
+</html>
+
+
