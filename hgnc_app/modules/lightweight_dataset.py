@@ -25,9 +25,9 @@ def extract_lite(column):
     """
     return {
         #hgnc_id, gene_symbol, and gene_name are strings
-        "hgnc_id": (column["hgnc_id"]),
-        "gene_symbol": (column["symbol"]),
-        "gene_name": (column["name"]),
+        "hgnc_id": column["hgnc_id"],
+        "gene_symbol": column["symbol"],
+        "gene_name": column["name"],
 
         #The rest are lists
         "previous_gene_symbol": clean(column["prev_symbol"]),
@@ -39,12 +39,12 @@ def extract_lite(column):
 
 def clean(cell):
     """
-    Takes a cell, split on | if True, return [] if False
+    Takes a cell, split on | if True, return ["N/A"] if False
     """
     if cell:
         return cell.split("|")
     else:
-        return ["N/A"]
+        return []
 
 
 
