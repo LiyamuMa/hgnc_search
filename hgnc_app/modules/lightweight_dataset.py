@@ -2,8 +2,7 @@
 import csv
 from pathlib import Path
 
-base_directory = Path(__file__).parent.parent
-hgnc_complete_set_path = base_directory/"data"/"hgnc_complete_set.txt"
+
 
 def search(id_or_symbol):
     """
@@ -11,6 +10,9 @@ def search(id_or_symbol):
     by the hgnc gene information web application. Organises data into Python
     dictionaries that can be used by the application
     """
+    base_directory = Path(__file__).parent.parent
+    hgnc_complete_set_path = base_directory/"data"/"hgnc_complete_set.txt"  
+    
     with open(hgnc_complete_set_path, newline="", encoding="utf-8") as f:
         hgnc_dict = csv.DictReader(f, delimiter="\t")
         for row in hgnc_dict:
