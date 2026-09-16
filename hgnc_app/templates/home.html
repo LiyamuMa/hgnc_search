@@ -20,6 +20,8 @@
         </button>
     </form>
 
+{% if gene %}
+
 <!--Display values for Gene Symbol, HGNC ID, and Approved Name.
     For the rest, display value, inserted comma if not the last
     value, and display NA if list is empty-->
@@ -44,11 +46,9 @@
             <th>Previous Symbols</th>     
             <td>
                 {% if gene %}
-                    {% if gene.previous_gene_symbol %}
-                        {% for p_symbol in gene.previous_gene_symbol %}
-                            {{ p_symbol }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    {% else %}N/A{% endif %}  
+                    {% for p_symbol in gene.previous_gene_symbol %}
+                        {{ p_symbol }}{% if not forloop.last %}, {% endif %}                       
+                    {% empty %}Nothing Found{% endfor %}
                 {% endif %} 
             </td>
         </tr>
@@ -57,11 +57,9 @@
             <th>Previous Names</th>
             <td>
                 {% if gene %}
-                    {% if gene.previous_gene_name %}
-                        {% for p_name in gene.previous_gene_name %}
-                            {{ p_name }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    {% else %}N/A{% endif %}
+                    {% for p_name in gene.previous_gene_name %}
+                        {{ p_name }}{% if not forloop.last %}, {% endif %}
+                    {% empty %}Nothing Found{% endfor %}
                 {% endif %}
             </td>
         </tr>
@@ -70,11 +68,9 @@
             <th>Alias Symbols</th>
             <td>
                 {% if gene %}
-                    {% if gene.alias_symbol %}
-                        {% for a_symbol in gene.alias_symbol %}
-                            {{ a_symbol }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    {% else %}N/A{% endif %}
+                    {% for a_symbol in gene.alias_symbol %}
+                        {{ a_symbol }}{% if not forloop.last %}, {% endif %}
+                    {% empty %}Nothing Found{% endfor %}
                 {% endif %}
             </td>
         </tr>
@@ -83,11 +79,9 @@
             <th>Alias Names</th>
             <td>
                 {% if gene %}
-                    {% if gene.alias_name %}
-                        {% for a_name in gene.alias_name %}
-                            {{ a_name }}{% if not forloop.last %}, {% endif %}
-                        {% endfor %}
-                    {% else %}N/A{% endif %}
+                    {% for a_name in gene.alias_name %}
+                        {{ a_name }}{% if not forloop.last %}, {% endif %}
+                    {% empty %}Nothing Found{% endfor %}
                 {% endif %}
             </td>
         </tr>
@@ -102,6 +96,8 @@
         </tr>
     </table>
 </section>
+
+{% endif %}
 
 </body>
 </html>
