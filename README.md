@@ -1,6 +1,6 @@
 # Summary
 
-This webapp takes in hgnc_id or symbol and returns the following information:
+This webapp takes in **HGNC ID** or **Gene Symbol** and returns the following information:
 - HGNC ID
 - Gene Symbol
 - Gene Name
