@@ -1,4 +1,5 @@
 # Summary
+[![codecov](https://codecov.io/gh/LiyamuMa/hgnc_search/graph/badge.svg?token=78T6BWD75F)](https://codecov.io/gh/LiyamuMa/hgnc_search)
 
 This webapp takes in **HGNC ID** or **Gene Symbol** and returns the following information:
 - HGNC ID
