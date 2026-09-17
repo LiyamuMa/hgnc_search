@@ -1,5 +1,6 @@
 from ..modules.lightweight_dataset import search, extract_lite, clean
 
+#Testing search() with different inputs
 def test_search_by_symbol():
     result = search("A1BG")
     assert result["gene_symbol"] == "A1BG"
@@ -21,6 +22,17 @@ def test_search_by_id():
     assert result["alias_symbol"] == ["IGBS3S", "IGB3S"]
     assert result ["alias_name"] == ["iGb3 synthase", "isoglobotriaosylceramide synthase"]
     assert result["mane_select_transcripts"] == ["ENST00000442999.3", "NM_001080438.1"]
+
+def test_search_by_number():
+    result = search("60")
+    assert result["gene_symbol"] == "ABCC9"
+    assert result["hgnc_id"] == "HGNC:60"
+    assert result["gene_name"] == "ATP binding cassette subfamily C member 9"
+    assert result["previous_gene_symbol"] == []
+    assert result["previous_gene_name"] == ["ATP-binding cassette, sub-family C (CFTR/MRP), member 9"]
+    assert result["alias_symbol"] == ["SUR2", "CMD1O"]
+    assert result ["alias_name"] == ["sulfonylurea receptor 2"]
+    assert result["mane_select_transcripts"] == ["ENST00000261200.9", "NM_020297.4"]
 
 def test_search_no_value():
     result = search("NOTAGENE1")
