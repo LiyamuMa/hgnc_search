@@ -3,12 +3,17 @@ from .modules.lightweight_dataset import search
 
 def home(request):
     query = request.GET.get('search')
+    gene = None
+    invalid = False
 
-    if query:
-        gene = search("".join(query.upper().split()))
-    else:
-        gene = None
+    cleaned_query = "".join(query.upper().split())
 
-    return render(request, 'home.html', {'query': query, 'gene': gene})
+    if cleaned_query:
+        if not cleaned_query.replace(":", "").isalnum():
+            invalid = True
+        else:
+            gene = search(cleaned_query)
+
+    return render(request, 'home.html', {'query': query, 'gene': gene, 'invalid': invalid})
 
 

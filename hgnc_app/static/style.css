@@ -15,15 +15,30 @@ h1 {
     color: #bd6808;
 }
 
-.intro {
+.welcome {
+    text-align: center;
+    color: #bd6808;
+    font-size: 30px;
+}
+
+.helpful_message {
     text-align: center;
     color: #bd6808;
 }
 
-.no_table {
-    text-align: center;
-    color: #bd6808;
-    font-size: 30px;
+.accepted_format {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: grey;
+    font-size: 12px;
+}
+
+.accepted_format_ul {
+    text-align: left;
+    list-style-position: inside;
+    padding: 0;
+    margin-top: 2px;
 }
 
 /* Formats the search bar

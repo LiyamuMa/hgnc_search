@@ -10,8 +10,7 @@
 
     <h1>HGNC Search Lite</h1>
 
-    <p class="intro">Enter the HGNC ID or symbol below to get some basic information
-        about your gene!</p>
+    <p class="welcome">Welcome!</p>
 
     <form method="GET" action="">
         <input type="text" name="search">
@@ -69,11 +68,24 @@
     </table>
 </section>
 
+{% elif invalid %}
+    <p class="helpful_message">'{{ query }}' contains invalid characters. Please
+        check '{{ query }}' only numbers, alphabets, or semi-colon.</p>
+
 {% elif query %}
-    <p class="no_table">{{ query }} not found.</p>
+    <p class="helpful_message">'{{ query }}' not found. Check that your gene or HGNC ID exists.</p>
 
 {% else %}
-    <p class="no_table">Welcome!</p>
+    <p class="helpful_message">Enter a gene name or HGNC ID to get some basic information about it!</p>
+    <div class="accepted_format">Accepted formats:
+        <ul class="accepted_format_ul">
+            <li>BRCA1</li>
+            <li>brca1</li>
+            <li>HGNC:1100</li>
+            <li>hgnc:1100</li>
+            <li>1100</li>
+        </ul>
+    </div>
 {% endif %}
 
 </body>
