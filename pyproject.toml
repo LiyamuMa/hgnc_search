@@ -8,7 +8,7 @@ version = "0.1.0"
 dependencies = [
     "Django==6.1",
     "pytest==9.1.1",
-    "pytest-cov==7.1.0"
+    "pytest-cov==7.1.0",
     "pytest-django==4.14.0",
 ]
 
