@@ -1,8 +1,31 @@
 from ..modules.lightweight_dataset import search, extract_lite, clean
 
-def test_search():
+def test_search_by_symbol():
     result = search("A1BG")
-    
+    assert result["gene_symbol"] == "A1BG"
+    assert result["hgnc_id"] == "HGNC:5"
+    assert result["gene_name"] == "alpha-1-B glycoprotein"
+    assert result["previous_gene_symbol"] == []
+    assert result["previous_gene_name"] == []
+    assert result["alias_symbol"] == []
+    assert result["alias_name"] == []
+    assert result["mane_select_transcripts"] == ["ENST00000263100.8", "NM_130786.4"]
+
+def test_search_by_id():
+    result = search("HGNC:30005")
+    assert result["gene_symbol"] == "A3GALT2"
+    assert result["hgnc_id"] == "HGNC:30005"
+    assert result["gene_name"] == "alpha 1,3-galactosyltransferase 2"
+    assert result["previous_gene_symbol"] == ["A3GALT2P"]
+    assert result["previous_gene_name"] == ["alpha 1,3-galactosyltransferase 2, pseudogene"]
+    assert result["alias_symbol"] == ["IGBS3S", "IGB3S"]
+    assert result ["alias_name"] == ["iGb3 synthase", "isoglobotriaosylceramide synthase"]
+    assert result["mane_select_transcripts"] == ["ENST00000442999.3", "NM_001080438.1"]
+
+def test_search_no_value():
+    result = search("NOTAGENE1")
+    assert result is None
+
 
 #testing extract_lite() with test_row that has extra columns
 def test_extract_lite():
