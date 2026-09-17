@@ -43,27 +43,27 @@
 
         <tr>
             <th>Previous Symbols</th>     
-            <td>{{ gene.previous_gene_symbol|join:", "|default:"Not Found" }}</td>
+            <td>{{ gene.previous_gene_symbol|join:" • "|default:"Not Found" }}</td>
         </tr>
 
         <tr>
             <th>Previous Names</th>
-            <td>{{ gene.previous_gene_name|join:", "|default:"Not Found" }}</td>
+            <td>{{ gene.previous_gene_name|join:"  •  "|default:"Not Found" }}</td>
         </tr>
 
         <tr>
             <th>Alias Symbols</th>
-            <td>{{ gene.alias_symbol|join:", "|default:"Not Found" }}</td>
+            <td>{{ gene.alias_symbol|join:"  •  "|default:"Not Found" }}</td>
         </tr>
 
         <tr>
             <th>Alias Names</th>
-            <td>{{ gene.alias_name|join:", "|default:"Not Found" }}</td>
+            <td>{{ gene.alias_name|join:"  •  "|default:"Not Found" }}</td>
         </tr>
 
         <tr>
             <th>MANE Select</th>
-            <td>{{ gene.mane_select_transcripts|join:", "|default:"Not Found" }}</td>
+            <td>{{ gene.mane_select_transcripts|join:"  •  "|default:"Not Found" }}</td>
         </tr>
     </table>
 </section>
