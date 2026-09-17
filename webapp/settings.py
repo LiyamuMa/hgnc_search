@@ -126,3 +126,53 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+#Logger settings
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+LOG_DIR = os.path.join(BASE_DIR, "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
+
+LOG_FILE = os.path.join(LOG_DIR, "hgnc_app.log")
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "standard": {
+            "format": (
+                "%(asctime)s | %(levelname)s | %(name)s | "
+                "%(filename)s:%(lineno)d | %(message)s"
+            )
+        }
+    },
+
+"handlers": {
+    "console": {
+        "class": "logging.StreamHandler",
+        "level": "DEBUG",
+        "formatter": "standard",
+    },
+
+    
+    "file": {
+        "class": "logging.handlers.RotatingFileHandler",
+        "level": "DEBUG",
+        "formatter": "standard",
+        "filename": LOG_FILE,
+        "maxBytes": 1024 * 50,  
+        "backupCount": 3,
+        "encoding": "utf-8",
+    },
+},
+
+ "loggers": {
+        "hgnc_app": {
+            "level": "DEBUG",
+            "handlers": ["console", "file"],
+            "propagate": False
+        },
+    },
+}
