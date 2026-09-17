@@ -6,9 +6,8 @@ def home(request):
     gene = None
     invalid = False
 
-    cleaned_query = "".join(query.upper().split())
-
-    if cleaned_query:
+    if query:
+        cleaned_query = "".join(query.upper().split())
         if not cleaned_query.replace(":", "").isalnum():
             invalid = True
         else:
