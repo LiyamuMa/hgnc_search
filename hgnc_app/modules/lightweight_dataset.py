@@ -12,6 +12,9 @@ def search(id_or_symbol):
     """
     base_directory = Path(__file__).parent.parent
     hgnc_complete_set_path = base_directory/"data"/"hgnc_complete_set.txt"  
+
+    if id_or_symbol.isdigit():
+        id_or_symbol = "HGNC:" + id_or_symbol
     
     with open(hgnc_complete_set_path, newline="", encoding="utf-8") as f:
         hgnc_dict = csv.DictReader(f, delimiter="\t")
