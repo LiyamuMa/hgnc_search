@@ -20,6 +20,12 @@ h1 {
     color: #bd6808;
 }
 
+.no_table {
+    text-align: center;
+    color: #bd6808;
+    font-size: 30px;
+}
+
 /* Formats the search bar
    display: flex; turns on the Flexbox
    justify-content tells Flexbox what to do
@@ -75,3 +81,5 @@ section td {
 section th {
     width: 200px;
 }
+
+
