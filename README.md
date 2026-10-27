@@ -24,7 +24,7 @@ conda activate hgnc_app_env
 
 To install applications, run:
 ```python
-pip install -e
+pip install -e .
 ```
 
 To load the webapp, run:
