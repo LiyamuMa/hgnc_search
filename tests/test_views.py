@@ -1,4 +1,4 @@
-from ..hgnc_app.views import home
+from hgnc_app.views import home
 from django.test import RequestFactory
 
 import os

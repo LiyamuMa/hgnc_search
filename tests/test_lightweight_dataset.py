@@ -1,4 +1,4 @@
-from ..hgnc_app.modules.lightweight_dataset import search, extract_lite, clean
+from hgnc_app.modules.lightweight_dataset import search, extract_lite, clean
 
 #Testing search() with different inputs
 def test_search_by_symbol():
