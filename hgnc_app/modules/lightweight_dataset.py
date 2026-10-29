@@ -1,4 +1,3 @@
-
 import csv
 from pathlib import Path
 
@@ -6,7 +5,6 @@ import logging
 logger = logging.getLogger(__name__)
 class Error(Exception):
     pass
-
 
 
 def search(id_or_symbol):
